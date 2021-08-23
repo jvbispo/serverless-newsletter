@@ -2,10 +2,10 @@ const User = require("../models/user");
 
 
 const getByEmail = async (email) => {
-
+    console.log(email);
     return User.findOne({
         where: {
-            email,
+            email: email,
         },
     });
 }
@@ -18,10 +18,10 @@ const getAll = async () => {
     });
 }
 
-const create = async (name, email) => {
+const create = async (email) => {
+    console.log('test');
     return User.create({
         email,
-        name,
     });
 };
 

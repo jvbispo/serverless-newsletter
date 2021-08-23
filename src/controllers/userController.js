@@ -1,15 +1,11 @@
 const userService = require('../services/userService');
-const User = require('../models/user');
-const sequelize = require('../config/database');
 
 const create = async (req, res, next) => {
     try {
-        // const { name, email } = req.body;
-
-        // const user = await userService.createUser(name, email);
-        
-        const user = await User.findAll();
-
+        const { email } = req.body;
+        console.log(email);
+        const user = await userService.createUser(email);
+    
         res.json(user);
 
     } catch (err) {

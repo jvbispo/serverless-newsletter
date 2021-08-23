@@ -2,11 +2,13 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const routes = require('./routes');
+const bodyParserMiddleware = require('./middlwares/bodyParser');
 
 
 const app = express();
 dotenv.config();
 
+app.use(bodyParserMiddleware);
 app.use(routes);
 
 app.use((req, res, next) => {
